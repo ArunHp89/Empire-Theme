@@ -1,0 +1,85 @@
+<section class="faq_sec custom-container">
+  <div class="coantainer">
+    <div class="faq_row">
+       {%- for block in section.blocks -%}
+      <div class="faq_col">
+        <div class="faq_box">
+          <div class="faq_question" onclick="toggleAccordion(this)">
+            {{ block.settings.question }}
+            <svg
+              class="faq_up feather feather-chevrons-up"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polyline points="17 11 12 6 7 11"/><polyline points="17 18 12 13 7 18"/>
+            </svg>
+          </div>
+          <div class="faq_ans">
+            <p>
+             {{ block.settings.answer }}              
+            </p>
+          </div>
+        </div>
+      </div>
+ {% endfor %}
+    </div>
+  </div>
+</section>
+<script>
+  function toggleAccordion(element) {
+     // Toggle the 'open' class on the clicked question
+     element.classList.toggle('open');
+
+     // Get the next sibling of the clicked element (the answer panel)
+     var answerPanel = element.nextElementSibling;
+
+     // Toggle the max-height property of the answer panel
+     if (answerPanel.style.maxHeight) {
+       answerPanel.style.maxHeight = null;
+     } else {
+       answerPanel.style.maxHeight = answerPanel.scrollHeight + "px";
+     }
+   }
+</script>
+{% schema %}
+ {
+   "name": "Add FAQ",
+   "settings": [],
+   "blocks":[
+	{
+		"type":"faq",
+		"name":"FAQs",
+		"settings":[
+			{
+				"type":"text",
+				"id":"question",
+				"label":"Questions"
+			},
+			{
+				"type":"richtext",
+				"id":"answer",
+				"label":"Answer"
+			}
+		]
+	}
+],
+     "presets": [
+   {
+     "name": "FAQ"
+   }
+ ]
+ }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

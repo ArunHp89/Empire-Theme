@@ -1,0 +1,76 @@
+<section class="mutli-column-sec custom-container">
+<div class="mutli-column-row">
+<div class="mutli-column-col">
+<h4>{{ section.settings.name-title }}</h4>
+  <p>{{ section.settings.name-email }}</p>
+  <p>{{ section.settings.name-phone1 }}</p>
+</div>
+  <div class="mutli-column-col">
+<h4>{{ section.settings.name-title2 }}</h4>
+  <p>{{ section.settings.name-email2 }}</p>
+  <p>{{ section.settings.name-phone2 }}</p>
+</div>
+</div>
+  
+</section>
+
+
+
+{% schema %}
+  {
+    "name": "Multi Column",
+    "settings": [
+      {
+           "type": "header",
+               "content": "Information 1"
+            },
+      {
+        "type": "text",
+        "id": "name-title",
+        "label": "Name",
+        "default": "Steve Currie"
+      },
+      {
+        "type": "richtext",
+        "id": "name-email",
+        "label": "Email"
+      },
+       {
+        "type": "richtext",
+        "id": "name-phone1",
+        "label": "Phone"
+      },
+         {
+           "type": "header",
+               "content": "Information 2"
+            },
+      {
+        "type": "text",
+        "id": "name-title2",
+        "label": "Name",
+        "default": "Andrew Hayward"
+      },
+      {
+        "type": "richtext",
+        "id": "name-email2",
+        "label": "Email"
+      },
+      {
+        "type": "richtext",
+        "id": "name-phone2",
+        "label": "Phone"
+      }
+    ],
+    "presets":[
+      {
+      "name": "Multi Column"
+    }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
